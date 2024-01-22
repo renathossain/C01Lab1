@@ -1,7 +1,7 @@
 // ToDoList.js
 
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Button } from 'react-native';
 import { v4 as uuidv4 } from 'uuid';
 import AddTask from './AddTask';
 
@@ -9,9 +9,10 @@ const ListItem = (props) => {
     return (
         <View style={styles.todoItem}>
             <Text>{props.title}</Text>
-            <TouchableOpacity onPress={() => props.removeToDo(props.id)}>
-                <Text>Remove</Text>
-            </TouchableOpacity>
+            <Button
+                title="Remove"
+                onPress={() => props.removeToDo(props.id)}
+            />
         </View>
     );
 };
@@ -32,7 +33,6 @@ const ToDoList = (props) => {
         );
     };
 
-
     const addToDo = (newTitle) => {
         const newEntry = {
             id: uuidv4(),
@@ -51,7 +51,7 @@ const ToDoList = (props) => {
                     removeToDo={removeToDo}
                 />
             ))}
-        <AddTask onAddTask={[]}/>
+        <AddTask onAddTask={addToDo}/>
         </View>
     );
 };
@@ -59,8 +59,6 @@ const ToDoList = (props) => {
 ToDoList.defaultProps = {
     toDos: []
 };
-
-export default ToDoList;
 
 const styles = StyleSheet.create({
     todoListContainer: {
@@ -77,3 +75,5 @@ const styles = StyleSheet.create({
       borderRadius: 5,
     },
 });
+
+export default ToDoList;
