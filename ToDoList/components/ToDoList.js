@@ -43,6 +43,7 @@ const ToDoList = (props) => {
 
     return (
         <View style={styles.todoListContainer}>
+            <Text style={styles.sectionTitle}>Today's Tasks</Text>
             {toDos.map((entry) => (
                 <ListItem 
                     key={entry.id}
@@ -51,7 +52,7 @@ const ToDoList = (props) => {
                     removeToDo={removeToDo}
                 />
             ))}
-        <AddTask onAddTask={addToDo}/>
+            <AddTask onAddTask={addToDo}/>
         </View>
     );
 };
@@ -74,6 +75,10 @@ const styles = StyleSheet.create({
       borderWidth: 1,
       borderRadius: 5,
     },
+    sectionTitle: {
+        fontSize: 24,
+        fontWeight: 'bold',
+    }
 });
 
 export default ToDoList;
