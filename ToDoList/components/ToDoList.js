@@ -1,12 +1,13 @@
 // ToDoList.js
 
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'; // Import TouchableOpacity
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { v4 as uuidv4 } from 'uuid';
+import AddTask from './AddTask';
 
 const ListItem = (props) => {
     return (
-        <View>
+        <View style={styles.todoItem}>
             <Text>{props.title}</Text>
             <TouchableOpacity onPress={() => props.removeToDo(props.id)}>
                 <Text>Remove</Text>
@@ -41,7 +42,7 @@ const ToDoList = (props) => {
     };
 
     return (
-        <View>
+        <View style={styles.todoListContainer}>
             {toDos.map((entry) => (
                 <ListItem 
                     key={entry.id}
@@ -50,8 +51,29 @@ const ToDoList = (props) => {
                     removeToDo={removeToDo}
                 />
             ))}
+        <AddTask onAddTask={[]}/>
         </View>
     );
 };
 
+ToDoList.defaultProps = {
+    toDos: []
+};
+
 export default ToDoList;
+
+const styles = StyleSheet.create({
+    todoListContainer: {
+      margin: 10,
+    },
+    todoItem: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      padding: 10,
+      marginVertical: 5,
+      borderColor: 'gray',
+      borderWidth: 1,
+      borderRadius: 5,
+    },
+});
