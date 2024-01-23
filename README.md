@@ -10,7 +10,7 @@ Basic ToDo List app with the following functionalities:
 git clone https://github.com/renathossain/C01Lab1.git
 cd C01Lab1
 cd ToDoList
-npm expo install
+npm install
 npm start
 ```
 - Then press `w` to start the web version or scan the QR code to run on a mobile device.
