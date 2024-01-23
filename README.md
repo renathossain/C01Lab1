@@ -7,6 +7,8 @@ Basic ToDo List app with the following functionalities:
 - Clone this repo
 - Run: 
 ```bash
+git clone https://github.com/renathossain/C01Lab1.git
+cd C01Lab1
 cd ToDoList
 npm expo install
 npm start
